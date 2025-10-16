@@ -1,4 +1,3 @@
-
 const circleCanvas = document.getElementById("CircleCanvas");
 const circleCtx = circleCanvas.getContext("2d");
 const circles = [] //クリックで生成した円を管理する配列
