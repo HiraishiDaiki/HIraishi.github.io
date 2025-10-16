@@ -1,0 +1,96 @@
+.container {
+    display: flex;
+    flex-direction: column; /* 縦並び */
+    align-items: center; /* 中央揃え */
+}
+
+.canvas-container {
+    display: flex;
+    width: 100%; /* 親要素の幅いっぱいに */
+    justify-content: center; /* 要素を中央に配置 */
+    align-items: flex-start; /* 上揃え */
+    margin-bottom: 20px; /* 下に余白 */
+    flex-direction: column; /* 縦に並べる */
+    align-items: center;
+}
+
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.field-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#volumeCanvas{
+    display: none;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    padding: 10px;
+}
+
+.menu-button {
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.slide-in-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 99;
+    padding-top: 60px;
+}
+
+.slide-in-menu.open {
+    right: 0;
+}
+
+.slide-in-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.slide-in-menu li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.slide-in-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}

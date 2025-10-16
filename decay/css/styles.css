@@ -1,0 +1,228 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    transition: margin-right 0.3s ease-in-out; /* スライドインアニメーション用 */
+}
+
+body.menu-open {
+    margin-right: 250px; /* メニュー表示時の右マージン */
+}
+
+/*見出し*/
+h1 {
+    color: #333;
+    text-align: center;
+    transition: margin-right 0.3s ease-in-out; /* スライドインアニメーション用 */
+}
+
+h1.menu-open {
+    margin-right: 250px; /* メニュー表示時の右マージン */
+}
+
+/*ボタン*/
+button {
+    margin: 5px 20px;
+    align-items: center;
+}
+
+.saveBtn{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*ロッドナンバー入力欄*/
+#rodnumber {
+    text-align: center;
+    font-size: 15px;
+    width: 30px;
+    height: 20px;
+}
+
+/*コンテナ*/
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out; /* コンテンツ移動アニメーション用 */
+}
+
+.container.menu-open {
+    transform: translateX(-250px); /* メニュー表示時のコンテンツ移動 */
+}
+
+/*details*/
+details {
+    width: 600px;
+    margin-bottom: 20px
+}
+
+/*details の summary*/
+details p{
+    text-align: center;
+}
+
+/*コンテナ内の p 要素*/
+.container p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/*コンテナ内の canvas*/
+.container canvas {
+    border: 1px solid #ddd;
+    background: #fff;
+
+    width: 600px;
+    aspect-ratio: 16 / 4.5 ;
+    margin-bottom: 5px
+} 
+
+.field {
+    width: 600px;
+    text-align: center;
+    transition: margin-right 0.3s ease-in-out; /* スライドインアニメーション用 */
+}
+
+.field.menu-open {
+    margin-right: 250px; /* メニュー表示時の右マージン */
+}
+
+
+/*field の button*/
+.field button{
+    margin:10px 10px;
+    width: 40px;
+    aspect-ratio: 4/3;
+}
+#textbox {
+    text-align: right;
+    font-size: 15px;
+    width: 50px;
+    height: 30px;
+}
+
+#amplitudeCanvas{
+    aspect-ratio: 16 / 9;
+}
+
+#CircleCanvas{
+    border: 1px solid #ddd;
+    background: #fff;
+    width: 80%;
+    aspect-ratio: 1.5;
+}
+
+/*トグルスイッチ用*/
+.switch_label{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
+
+.switch{
+    position: relative;
+}
+
+input[type = "checkbox"]{
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.circle{
+    position:absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: white;
+    transition: 0.5s;
+}
+
+input:checked ~ .circle{
+    transform: translateX(100%);
+    background-color: blue;
+}
+
+.base{
+    width: 56px;
+    border-radius: 16px;
+    height: 32px;
+    background-color: #ddd;
+}
+
+input:checked ~ .base{
+    background-color: rgb(219, 234, 254);
+    transition: 0.5s;
+}
+
+.title{
+    margin-left: 4px
+}
+
+.Recording
+{
+    display: flex;
+    justify-content: center;
+}
+
+#audio{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.toggle{
+    display: flex;
+}
+
+
+
+
+@media screen and (max-width:480px){
+    /*画面サイズが480px以下の場合個々の記述が適用される*/
+    h1 {
+        font-size: 24px;
+    }
+
+ 
+    .field{
+        width: 100%;
+    }
+
+    .field button{
+        width: 10%;
+        margin: 10px 0px;
+    }
+
+    /* 480px以下でのメニューの調整 */
+    .slide-in-menu {
+        width: 70%; /* 画面幅の70%にするなど調整 */
+        right: -70%;
+    }
+
+    body.menu-open {
+        margin-right: 70%;
+    }
+
+    .container.menu-open {
+        transform: translateX(-70%);
+    }
+
+    h1.menu-open {
+        margin-right: 70%;
+    }
+
+    .field.menu-open {
+        margin-right: 70%;
+    }
+}
