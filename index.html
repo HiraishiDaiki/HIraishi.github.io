@@ -1,0 +1,128 @@
+<!--本体部分--><!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timpani tuning support system</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="apple-touch-icon" href="img/icon/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="img/icon/android-chrome-192x192.png" sizes="192x192">
+</head>
+
+<body>
+    <header>
+        <button id="menuButton" class="menu-button">☰</button>
+    </header>
+
+    <nav id="slideInMenu" class="slide-in-menu">
+        <ul>
+            <li><a href="decay/index.html">減衰曲線表示へ</a></li>
+            <li><a href="balance/index.html">バランス表示へ</a></li>
+        </ul>
+    </nav>
+
+    <h1>Timpani Tuning Support System</h1>
+
+    <div class="container">
+      <canvas id="CircleCanvas"></canvas>
+
+      <!--録音部分UI-->
+      <div class="button">
+        <button id="StartButton">Start</button>
+        <span>Number of rods</span>
+        <input type = "number" class = "inputnumber" value = "6" id = "rodnumber">
+        <button id="ResetButton">Reset</button>
+      </div>
+
+      <!--周波数指定部分UI-->
+      <div class="field">
+          <button id = "-10down">-10</button>
+          <button id = "-5down">-5</button>
+          <button id = "down">-</button>
+          <input type="text" value="440" class ="inputtext" id="textbox">
+          <span>Hz</span>
+          <button id = "up">+</button>
+          <button id = "+5up">+5</button>
+          <button id = "+10up">+10</button>
+      </div>
+
+      <!--スクショボタン-->
+      <div class="button">
+        <button class = "saveBtn" data-canvas-id="CircleCanvas">Save Canvas</button>
+        <!--トグルスイッチ2-->
+        
+      </div>
+      <!--音声処理表示-->
+      <div class ="analyzer">
+        <!--音声波形-->
+        <canvas id="volumeCanvas"></canvas>
+       
+        <!--スペクトル-->
+        <details class="accordion" open>
+          <summary>frequency</summary>
+          <canvas id="frequencyCanvas"></canvas>
+          <!--スクショボタン-->
+          <button class = "saveBtn" data-canvas-id="frequencyCanvas">Save Canvas</button>
+        </details>
+        
+        <!--減衰曲線-->
+        <details class="accordion" open>
+          <summary>amplitude</summary>
+
+          <div class="toggle">
+              <!--トグルスイッチ-->
+            <label for="switch" class="switch_label">
+              <div class="switch">
+                <input type="checkbox" id="switch" />
+                <div class="circle"></div>
+                <div class="base"></div>
+              </div>
+              <span class="title">Last Decay Curve</span>
+            </label>
+
+            <!--トグルスイッチ2-->
+            <label for="switch2" class="switch_label">
+              <div class="switch">
+                <input type="checkbox" id="switch2"/>
+                <div class="circle"></div>
+                <div class="base"></div>
+              </div>
+              <span class="title">Keep Canvas</span>
+            </label>
+          </div>
+          
+
+          <canvas id="amplitudeCanvas"></canvas>
+          <!--スクショボタン-->
+          <button class = "saveBtn" data-canvas-id="amplitudeCanvas">Save Canvas</button>
+          <p>Recording</p>
+          <div class = "Recording">
+            <!--録音部分-->
+            <button id ="RecStart">Start</button>
+            <button id ="RecStop">Stop</button>
+          </div>
+          
+          
+        </details>
+      </div>
+        
+    </div>
+
+    <!--波形表示やスペクトル表示-->
+    <script src="js/script.js"></script>
+    
+    <!--円の表示とタップ部分のプロット-->
+    <script src="js/circle.js"></script>
+
+    <!--周波数を指定するボタンの処理-->
+    <script src="js/countHz.js"></script>
+
+    <!--録音機能-->
+    <script src="js/recording.js"></script>
+
+    <!--メニュー-->
+    <script src="js/menu.js"></script>
+</body>
+
+</html>
